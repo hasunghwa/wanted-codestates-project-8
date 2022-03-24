@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const ForestInfo = ({ setIsOpen, forestData, idx }) => {
+const ForestInfo = ({ setIsOpen, forestData, setforestData, idx }) => {
   const [value, setValue] = useState("");
   const [forest, setForest] = useState({
     fcNo: forestData.fcNo,
@@ -22,6 +22,10 @@ const ForestInfo = ({ setIsOpen, forestData, idx }) => {
   };
 
   const addForest = () => {
+    if (!value) {
+      alert("메모를 입력해주세요");
+      return;
+    }
     const localData = JSON.parse(localStorage.getItem("ForestList"));
 
     if (localData) {
@@ -46,20 +50,34 @@ const ForestInfo = ({ setIsOpen, forestData, idx }) => {
         ])
       );
     }
+    alert("저장 되었습니다.");
     setIsOpen(false);
   };
 
   const deleteForest = () => {
     const localData = JSON.parse(localStorage.getItem("ForestList"));
     localData.splice(idx, 1);
+    if (localData.length === 0) {
+      setforestData();
+      localStorage.removeItem("ForestList");
+      return;
+    }
+    setforestData(localData);
     localStorage.setItem("ForestList", JSON.stringify(localData));
+    alert("삭제 되었습니다.");
     setIsOpen(false);
   };
 
   const configForest = () => {
+    if (!value) {
+      alert("메모를 입력해주세요");
+      return;
+    }
     const localData = JSON.parse(localStorage.getItem("ForestList"));
     localData[idx].memo = value;
+    setforestData(localData);
     localStorage.setItem("ForestList", JSON.stringify(localData));
+    alert("수정 되었습니다.");
     setIsOpen(false);
   };
 
@@ -87,7 +105,7 @@ const ForestInfo = ({ setIsOpen, forestData, idx }) => {
           {forestData.memo ? (
             <>
               <Div>
-                <H2>메모</H2>
+                <H2>메모{value ? "" : " (메모를 입력해주세요)"}</H2>
                 <Input
                   value={value}
                   onChange={onChange}
@@ -106,7 +124,7 @@ const ForestInfo = ({ setIsOpen, forestData, idx }) => {
                 <Button
                   onClick={configForest}
                   isNull={value}
-                  disabled={value === "" ? true : false}
+                  //disabled={value === "" ? true : false}
                   isSmall={true}
                 >
                   수정
@@ -116,7 +134,7 @@ const ForestInfo = ({ setIsOpen, forestData, idx }) => {
           ) : (
             <>
               <Div>
-                <H2>메모</H2>
+                <H2>메모{value ? "" : " (메모를 입력해주세요)"}</H2>
                 <Input
                   value={value}
                   onChange={onChange}
@@ -126,7 +144,7 @@ const ForestInfo = ({ setIsOpen, forestData, idx }) => {
               <Button
                 onClick={addForest}
                 isNull={value}
-                disabled={value === "" ? true : false}
+                // disabled={value === "" ? true : false}
                 isSmall={false}
               >
                 저장
