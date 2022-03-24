@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/*"
+  from = "proxy/*"
   to = "https://www.chungbuk.go.kr/:splat"
   status = 200
