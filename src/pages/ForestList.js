@@ -28,14 +28,17 @@ const ForestList = () => {
         </Link>
       </Header>
       <H1>휴양림 목록</H1>
-      <Forests forestData={forestData} />
+      <Forests
+        forestData={forestData}
+        setForestData={setForestData}
+        loadData={loadData}
+      />
     </Warraper>
   );
 };
 
 const Warraper = styled.div`
   display: flex;
-  overflow: hidden;
   flex-direction: column;
   align-items: center;
 `;
