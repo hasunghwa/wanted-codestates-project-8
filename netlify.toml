@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/openapi-json/pubdata/pubMapForest.do/*"
-  to = "https://www.chungbuk.go.kr/openapi-json/pubdata/pubMapForest.do/"
+  from = "/*"
+  to = "https://www.chungbuk.go.kr/:splat"
   status = 200
