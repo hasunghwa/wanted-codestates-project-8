@@ -1,9 +1,9 @@
 [[redirects]]
-  from = "proxy/*"
-  to = "https://www.chungbuk.go.kr/:splat"
+  from = "/api/*"
+  to = "http://apis.data.go.kr/6430000/cbRecreationalForestInfoService/:splat"
   status = 200
-  
+
 [[redirects]]
-  from = "/"
-  to = "index/html"
+  from = "/*"
+  to = "/index.html"
   status = 200
