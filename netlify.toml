@@ -2,6 +2,12 @@
   from = "/api/*"
   to = "https://www.chungbuk.go.kr/:splat"
   status = 200
+  
+[[redirects]]
+  from = "https://elegant-ganache-715518.netlify.app/*"
+  to = "http://elegant-ganache-715518.netlify.app/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/*"
