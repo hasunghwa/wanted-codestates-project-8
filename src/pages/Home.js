@@ -29,7 +29,7 @@ const Home = () => {
     if (keyWord) {
       let keyData = [];
       localData.map((data) => {
-        if (type === "이름" && data.fcNm.includes(keyWord)) {
+        if (type === "이름" && data.NM.includes(keyWord)) {
           keyData = [...keyData, data];
         }
         if (type === "메모" && data.memo.includes(keyWord)) {
