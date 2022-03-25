@@ -4,10 +4,10 @@ import styled from "styled-components";
 const ForestInfo = ({ setIsOpen, forestData, setforestData, idx }) => {
   const [value, setValue] = useState("");
   const [forest, setForest] = useState({
-    fcNo: forestData.fcNo,
-    fcNm: forestData.fcNm,
-    fcAddr: forestData.fcAddr,
-    ref1: forestData.ref1,
+    AR: forestData.AR,
+    NM: forestData.NM,
+    ADRES: forestData.ADRES,
+    TELNO: forestData.TELNO,
     memo: "",
   });
 
@@ -93,14 +93,14 @@ const ForestInfo = ({ setIsOpen, forestData, setforestData, idx }) => {
         <InfoDiv>
           <Div>
             <H2>이름</H2>
-            {forestData.fcNm}
+            {forestData.NM}
           </Div>
           <Div>
             <H2>주소</H2>
-            {forestData.fcAddr}
+            {forestData.ADRES}
           </Div>
           <Div>
-            <H2>연락처</H2> {forestData.ref1}
+            <H2>연락처</H2> {forestData.TELNO}
           </Div>
           {forestData.memo ? (
             <>

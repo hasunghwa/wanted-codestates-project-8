@@ -1,13 +1,12 @@
 import axios from "axios";
-const PROXY = window.location.hostname === "localhost" ? "" : "/api";
+import { API_URL } from "../constants";
 
 export const getApiData = async (page) => {
   try {
     const res = await axios.get(
-      `${PROXY}/openapi-json/pubdata/pubMapForest.do?pageNo=${page}`
+      `/api${API_URL}&perPage=10&currentPage=${page}`
     );
-    const parsedData = JSON.parse(res.data);
-    return parsedData.response;
+    return res.data.body;
   } catch (err) {
     console.error(err);
   }
