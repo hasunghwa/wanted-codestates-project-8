@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Forests from "../components/Forests";
 import styled from "styled-components";
+import { data } from "browserslist";
 
 const ForestList = () => {
   const [forestData, setForestData] = useState([]);
@@ -13,10 +14,29 @@ const ForestList = () => {
   }, []);
 
   const loadData = async () => {
-    const dataPerPage = await getApiData(page);
+    const localData = JSON.parse(localStorage.getItem("apiData"));
+    const localPage = JSON.parse(localStorage.getItem("apiPage"));
+    const dataPerPage = await getApiData(localPage ? localPage : page);
+
     if (dataPerPage) {
+      if (localData) {
+        setForestData([...localData, ...dataPerPage]);
+        localStorage.setItem(
+          "apiData",
+          JSON.stringify([...localData, ...dataPerPage])
+        );
+        if (dataPerPage.length === 0) return;
+        localStorage.setItem("apiPage", localPage + 1);
+        setPage(localPage + 1);
+        return;
+      }
       setForestData((prev) => [...prev, ...dataPerPage]);
+      localStorage.setItem(
+        "apiData",
+        JSON.stringify([...forestData, ...dataPerPage])
+      );
       setPage((prev) => prev + 1);
+      localStorage.setItem("apiPage", page + 1);
     }
   };
 
