@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://www.chungbuk.go.kr/:splat"
+  to = "http://apis.data.go.kr/6430000/cbRecreationalForestInfoService/:splat"
   status = 200
   
 [context.production.environment]
