@@ -14,9 +14,9 @@ const Home = () => {
   const loadData = () => {
     const localData = JSON.parse(localStorage.getItem("ForestList"));
     if (localData) {
-      setIsLoading(false);
       setLocalData(localData);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
