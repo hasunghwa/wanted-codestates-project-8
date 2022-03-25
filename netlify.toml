@@ -4,4 +4,5 @@
   status = 200
   
 [context.production.environment]
+  SERVICE_KEY = "From netlify.toml"
   REACT_APP_SERVICE_KEY = "From netlify.toml (REACT_APP_)"
