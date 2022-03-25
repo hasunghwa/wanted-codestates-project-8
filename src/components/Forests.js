@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import styled from "styled-components";
 import ForestInfo from "./ForestInfo";
 
-const Forests = ({ forestData, setforestData, loadData }) => {
+const Forests = ({ forestData, setforestData, loadData, isEmpty }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [forestId, setForestId] = useState(0);
   const [prevScroll, setprevScroll] = useState(0);
@@ -34,20 +34,23 @@ const Forests = ({ forestData, setforestData, loadData }) => {
           setforestData={setforestData}
         />
       ) : null}
-
-      {forestData.map((forest, idx) => (
-        <Forest key={idx} onClick={() => openModal(idx)}>
-          <p>
-            이름: {forest.fcNm}
-            <br />
-            주소: {forest.fcAddr}
-            <br />
-            연락처: {forest.ref1}
-            <br />
-            {forest.memo ? "메모: " + forest.memo : ""}
-          </p>
-        </Forest>
-      ))}
+      {!isEmpty
+        ? forestData.map((forest, idx) => (
+            <Forest key={idx} isEmpty={false} onClick={() => openModal(idx)}>
+              <p>
+                이름: {forest.fcNm}
+                <br />
+                주소: {forest.fcAddr}
+                <br />
+                연락처: {forest.ref1}
+                <br />
+                {forest.memo ? "메모: " + forest.memo : ""}
+              </p>
+            </Forest>
+          ))
+        : [0, 1, 2, 3, 4].map((data, idx) => (
+            <Forest key={idx} isEmpty={true} />
+          ))}
     </Warraper>
   );
 };
@@ -65,11 +68,12 @@ const Warraper = styled.div`
 const Forest = styled.div`
   font-weight: 400;
   width: 75%;
-  background-color: #00c897;
+  background-color: ${(props) => (props.isEmpty ? "#dddddd" : "#00c897")};
   margin-bottom: 10px;
   padding: 20px;
   border-radius: 8px;
   line-height: 25px;
+  height: ${(props) => (props.isEmpty ? "115px" : "")};
   cursor: pointer;
 `;
 

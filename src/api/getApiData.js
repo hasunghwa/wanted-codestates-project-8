@@ -1,9 +1,10 @@
 import axios from "axios";
+const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
 
 export const getApiData = async (page) => {
   try {
     const res = await axios.get(
-      `/proxy/openapi-json/pubdata/pubMapForest.do?pageNo=${page}`
+      `${PROXY}/openapi-json/pubdata/pubMapForest.do?pageNo=${page}`
     );
     const parsedData = JSON.parse(res.data);
     return parsedData.response;
