@@ -17,6 +17,11 @@ const Home = () => {
       setLocalData(localData);
     }
     setIsLoading(false);
+    setIsSearch(false);
+    if (keyWord !== "") {
+      setIsSearch(true);
+      setKeyWord("");
+    }
   };
 
   useEffect(() => {
@@ -55,7 +60,6 @@ const Home = () => {
                 <Revert
                   onClick={() => {
                     loadData();
-                    setIsSearch(false);
                   }}
                 >
                   <img src="https://img.icons8.com/material-rounded/24/000000/recurring-appointment.png" />
@@ -79,7 +83,6 @@ const Home = () => {
                   <Revert
                     onClick={() => {
                       loadData();
-                      setIsSearch(false);
                     }}
                   >
                     <img src="https://img.icons8.com/material-rounded/24/000000/recurring-appointment.png" />
