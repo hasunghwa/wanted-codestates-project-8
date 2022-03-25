@@ -28,11 +28,16 @@ const ForestList = () => {
         </Link>
       </Header>
       <H1>휴양림 목록</H1>
-      <Forests
-        forestData={forestData}
-        setForestData={setForestData}
-        loadData={loadData}
-      />
+      {forestData.length !== 0 ? (
+        <Forests
+          forestData={forestData}
+          setForestData={setForestData}
+          loadData={loadData}
+          isEmpty={false}
+        />
+      ) : (
+        <Forests isEmpty={true} />
+      )}
     </Warraper>
   );
 };
