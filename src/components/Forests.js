@@ -14,9 +14,10 @@ const Forests = ({ forestData, setforestData, loadData, isEmpty }) => {
   };
 
   const onScroll = (e) => {
-    const scrollAreaHeight = fullContent.current.clientHeight; // 한 눈에 보이는 스크롤 영역
-    const myScroll = e.target.scrollTop + scrollAreaHeight; // 사용자의 스크롤 위치
-
+    const scrollAreaHeight = fullContent.current.clientHeight;
+    // 사용자의 스크롤 위치
+    const myScroll = e.target.scrollTop + scrollAreaHeight;
+    // 스크롤 마지막에 도달 하면
     if (myScroll > e.nativeEvent.target.scrollHeight - 100) {
       if (e.nativeEvent.target.scrollHeight === prevScroll) return;
       setprevScroll(e.nativeEvent.target.scrollHeight);
@@ -38,11 +39,11 @@ const Forests = ({ forestData, setforestData, loadData, isEmpty }) => {
         ? forestData.map((forest, idx) => (
             <Forest key={idx} isEmpty={false} onClick={() => openModal(idx)}>
               <p>
-                이름: {forest.fcNm}
+                이름: {forest.NM}
                 <br />
-                주소: {forest.fcAddr}
+                주소: {forest.ADRES}
                 <br />
-                연락처: {forest.ref1}
+                연락처: {forest.TELNO}
                 <br />
                 {forest.memo ? "메모: " + forest.memo : ""}
               </p>
