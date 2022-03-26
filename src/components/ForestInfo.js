@@ -121,12 +121,7 @@ const ForestInfo = ({ setIsOpen, forestData, setforestData, idx }) => {
                 >
                   삭제
                 </Button>
-                <Button
-                  onClick={configForest}
-                  isNull={value}
-                  //disabled={value === "" ? true : false}
-                  isSmall={true}
-                >
+                <Button onClick={configForest} isNull={value} isSmall={true}>
                   수정
                 </Button>
               </Buttons>
@@ -141,12 +136,7 @@ const ForestInfo = ({ setIsOpen, forestData, setforestData, idx }) => {
                   placeholder="내용을 입력해주세요"
                 ></Input>
               </Div>
-              <Button
-                onClick={addForest}
-                isNull={value}
-                // disabled={value === "" ? true : false}
-                isSmall={false}
-              >
+              <Button onClick={addForest} isNull={value} isSmall={false}>
                 저장
               </Button>
             </>

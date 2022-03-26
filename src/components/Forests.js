@@ -17,7 +17,7 @@ const Forests = ({ forestData, setforestData, loadData, isEmpty }) => {
     const scrollAreaHeight = fullContent.current.clientHeight;
     // 사용자의 스크롤 위치
     const myScroll = e.target.scrollTop + scrollAreaHeight;
-    // 스크롤 마지막에 도달 하면
+    // 스크롤이 휴양지 목록의 끝이면
     if (myScroll > e.nativeEvent.target.scrollHeight - 100) {
       if (e.nativeEvent.target.scrollHeight === prevScroll) return;
       setprevScroll(e.nativeEvent.target.scrollHeight);

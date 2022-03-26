@@ -43,8 +43,6 @@ const Header = ({ setKeyWord, setType, isNull }) => {
   );
 };
 
-export default Header;
-
 const Warraper = styled.div`
   margin: 15px 0px;
 `;
@@ -87,3 +85,5 @@ const Svg = styled.svg`
   top: 40px;
   cursor: pointer;
 `;
+
+export default Header;

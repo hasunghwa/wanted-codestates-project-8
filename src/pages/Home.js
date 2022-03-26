@@ -25,7 +25,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // "이름" => fcNm "메모" => memo
     if (keyWord) {
       let keyData = [];
       localData.map((data) => {
