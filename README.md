@@ -43,7 +43,7 @@ $ npm start
 
 ## 휴양림 데이터 목록
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd7a568f-f506-4919-8e28-ad5ef3f32b79/Untitled.png)
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bd7a568f-f506-4919-8e28-ad5ef3f32b79/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220328%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220328T124419Z&X-Amz-Expires=86400&X-Amz-Signature=07bbb40dadcbfc16419d5af7c250ec91191e7c040965c7a093b26757db970e88&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 1. 휴양림 데이터 조회는 한 번에 10개씩 무한 스크롤로 조회해야 합니다. 무한 스크롤은 라이브러리를 사용하지 말고 직접 구현해 주세요.
     
