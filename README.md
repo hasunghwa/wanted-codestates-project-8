@@ -81,7 +81,10 @@ $ npm start
 
 ### 어려웠던 점 ****(에러 핸들링)****
 
-1. CORS `http-proxy-middleware`   
+1. CORS 
+    cors에러를 proxy-middleware를 통해 해결하였지만, 배포 환경에서는 다른 설정이 필요했다.  
+    netlify를 통해 배포를 하면 https로 만들어지기 때문에 https를 http로 리다이렉트 해주어야 했다.
+`http-proxy-middleware`   
     
     ```jsx
     //setupProxy.js
@@ -111,6 +114,8 @@ $ npm start
     ```
     
 2. 무한 스크롤
+    overflow auto를 통해 스크롤을 만들었지만 스크롤이 나타나지 않았다.
+    height의 크기를 지정해 주지 않아서 overflow가 일어나지 않았기 때문이었다.
     ```css
     overflow-y: auto;
     height: 80vh;
